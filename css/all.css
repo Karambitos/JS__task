@@ -1,0 +1,19 @@
+html, pre {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0 auto;
+  background-color: #ccc;
+}
+
+.table {
+  width: 100%;
+  min-height: 600px;
+  line-height: 1.5;
+  letter-spacing: 0.05rem;
+  padding: 1rem;
+  background-color: white;
+  text-align: center;
+}
+/*# sourceMappingURL=all.css.map */
