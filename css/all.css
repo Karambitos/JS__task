@@ -15,5 +15,14 @@ body {
   padding: 1rem;
   background-color: white;
   text-align: center;
+  border: 1px solid;
+}
+
+.table thead {
+  background-color: #848383;
+}
+
+.table tr:nth-child(2n) {
+  background-color: #ccc;
 }
 /*# sourceMappingURL=all.css.map */

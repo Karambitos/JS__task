@@ -16,4 +16,12 @@ html, pre {
     padding: 1rem;
     background-color: white;
     text-align: center;
+    border: 1px solid;
+
+    thead{
+      background-color: #848383;
+    }
+    tr:nth-child(2n){
+      background-color: #ccc;
+    }
   }
