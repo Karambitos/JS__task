@@ -1,7 +1,7 @@
 
 'use strict';
 document.addEventListener('DOMContentLoaded', () => {
-
+    let string = 'some test string'
     // # Домашнее задание.
     // Дана строка: 
     let string = 'some test string'; 
@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     value = string.slice(5, 9);
     console.log("4. " , value);
     // 5. Получить число pi из Math и округлить его до 2-х знаков после точки.
-    value = Math.PI;
-    value = +value.toFixed(2);
+    value = Math.PI.toFixed(2);
     console.log("5. " , value);
     // 6. Используя Math, найти максимальное и минимальное числа из представленного ряда 15, 11, 16, 12, 511, 12, 13, 51.
         let numbersArr = [15, 11, 16, 12, 511, 12, 13, 51]; 
@@ -43,8 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("6.2. " , valueMax);
         console.log("6.3. " , valueMin);
     // 7. Получить случайное число и округлить его до двух цифр после запятой.
-    value = Math.random();
-    value = +value.toFixed(2);
+    value = Math.random().toFixed(2);
     console.log("7. " , value);
     // 8. Получить случайное целое число от 0 до X. X - любое произвольное число.
     value = Math.round(Math.random() * 100);

@@ -21,9 +21,6 @@
 
 **Все поля добавлять по очереди, не создавать сразу готовый объект со всеми полями**.
 
-
-
-
 **Типы данных:**
 https://vimeo.com/341719216/ba8388e4d4
 1.[https://developer.mozilla.org/uk/docs/Web/JavaScript/Data_structures]
