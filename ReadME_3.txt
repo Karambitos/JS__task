@@ -1,6 +1,8 @@
 # Домашнее задание.
 
-1. На основе массива **map** и массива **users** собрать новый массив объектов где в каждом объекте будут только те свойства которые перечислены в массиве **map**
+1. На основе массива **map** и массива **users** собрать новый массив
+ объектов где в каждом объекте будут только те свойства которые перечислены
+ в массиве **map**
 
     const map = ["_id", "name", "isActive", "balance"];
     const users = [
@@ -46,17 +48,22 @@
 
     [ { _id: ..., name: ..., isActive: ..., balance: ... }, ... ];
 
-2. Дан массив объектов, где каждый объект содержит информацию о букве и месте её положения в строке {буква: “a”, позиция_в_предложении: 1}:
+2. Дан массив объектов, где каждый объект содержит информацию о 
+букве и месте её положения в строке {буква: “a”, позиция_в_предложении: 1}:
 
     [{char:"a",index:12}, {char:"w",index:8}, {char:"Y",index:10}, {char:"p",index:3}, {char:"p",index:2},
     {char:"N",index:6}, {char:" ",index:5}, {char:"y",index:4}, {char:"r",index:13}, {char:"H",index:0},
     {char:"e",index:11}, {char:"a",index:1}, {char:" ",index:9}, {char:"!",index:14}, {char:"e",index:7}]
 
-Напишите функцию, которая из элементов массива соберет и вернёт строку, основываясь на index каждой буквы. Например:
+Напишите функцию, которая из элементов массива соберет и вернёт строку,
+ основываясь на index каждой буквы. Например:
 
     // [{char:"H",index:0}, {char:"i",index: 1}, {char:"!",index:2}] → "Hi!"
 
-3. Организовать функцию getInfo, которая принимает объект вида**{ name: ..., info: { employees: [...], partners: [ … ] } }**и выводит в консоль имя (если имени нет, показывать ‘Unknown’) и первые две компании из массива partners:
+3. Организовать функцию getInfo, которая принимает объект вида 
+**{ name: ..., info: { employees: [...], partners: [ … ] } }**
+и выводит в консоль имя (если имени нет, показывать ‘Unknown’) 
+и первые две компании из массива partners:
 
     **const** organisation = { 
       name: 'Google', 
@@ -75,7 +82,9 @@
     	lastUpdate: ''
     };
 
-Сделать так что-бы при получении или изменении свойства **name** в свойствах **lastGet** и **lastUpdate** сохранялась дата последнего получения или последнего обновления соответсвенно. 
+Сделать так что-бы при получении или изменении свойства **name** в 
+свойствах **lastGet** и **lastUpdate** сохранялась дата последнего 
+получения или последнего обновления соответсвенно. 
 
 5. Дан объект:
 
@@ -85,4 +94,42 @@
     	price: '$300'
     };
 
-сделать геттер который будет возвращать **brand** и **model** в виде строки "Apple iPhone 7" ****а также сделать сеттер в который будет передаваться строка например "Samsung S8 Gold" и в объекте в поле **brand** будет записано "Samsung" а в поле **model** будет записано "S8 Gold"
+сделать геттер который будет возвращать **brand** и **model** в 
+виде строки "Apple iPhone 7" ****а также сделать сеттер в который 
+будет передаваться строка например "Samsung S8 Gold" и в объекте в 
+поле **brand** будет записано "Samsung" а в поле **model** будет записано "S8 Gold"
+
+### Arrow functions
+
+[https://medium.com/@KucherDev/когда-и-почему-стоит-использовать-стрелочные-функции-es6-3135a973490b]
+[https://developer.mozilla.org/uk/docs/Web/JavaScript/Reference/Functions/Стрілкові_функції]
+
+### Перебирающие методы массивов
+
+[https://learn.javascript.ru/array-iteration]
+[https://medium.com/@stasonmars/объясняем-методы-в-массивах-js-filter-vs-map-vs-reduce-vs-foreach-995ef7468c4a]
+
+### Замыкание
+
+[https://medium.com/@sshambir/осваиваем-замыкания-в-javascript-5b83267ef7d1]
+[https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36]
+[https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8]
+
+### Методы объектов
+
+[https://medium.com/youstart-labs/javascript-object-methods-every-developer-should-know-c68c132a658]
+[https://wecodetheweb.com/2016/02/12/immutable-javascript-using-es6-and-beyond/]
+
+### Object descriptor
+
+[https://developer.mozilla.org/uk/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty]
+[https://learn.javascript.ru/descriptors-getters-setters]
+
+### Объекты обертки
+
+[https://javascriptrefined.io/the-wrapper-object-400311b29151]
+
+### Деструктуризация
+
+[https://medium.com/@stasonmars/деструктуризация-в-es6-полное-руководство-b865bb71f376]
+[http://jsraccoon.ru/es6-spread-rest]
