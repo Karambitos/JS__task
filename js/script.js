@@ -57,7 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 return acc
             }, {})
 
-            const listConteiner = document.querySelector('.list-group')
+            const listConteiner = document.querySelector('.list-group');
+            const container = document.querySelector('.list-container');
             const form = document.forms['addTask'];
             const inputTitle = form.elements['title'];
             const inputBody = form.elements['body'];
@@ -82,6 +83,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     fragment.appendChild(li);
                 })
                 listConteiner.appendChild(fragment)
+                console.log(container)
+                container.insertAdjacentHTML('afterbegin',
+                    `
+                <div class="text-center">
+                <button style="width: 40%" class="btn btn-info mr-auto filter-btn">in progress</button 100px;>
+                <button style="width: 40%" class="btn btn-info ml-auto filter-btn">done</button>
+                </div>
+                `
+                );
             }
 
             function listItemTemplate({ // create <li></li>
@@ -109,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const completedData = btnDone.dataset.completed;
 
                 if (completedData === "true") {
-                    btnDone.classList.add('btn-primary');
+                    btnDone.classList.add('btn-success');
                     btnDone.textContent = "Done";
                 } else {
                     btnDone.classList.add('btn-secondary');
@@ -215,14 +225,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 const target = e.target;
                 const targetLi = target.closest('[data-task-id]');
                 const id = targetLi.dataset.taskId;
-                if (target.classList.contains('progress-btn' && 'btn-primary')) {
-                    target.classList.remove('btn-primary');
+                if (target.classList.contains('progress-btn' && 'btn-success')) {
+                    target.classList.remove('btn-success');
                     target.classList.add('btn-secondary');
                     target.textContent = "in progress";
                     target.dataset.completed = `${objOfTasks[id].completed}`;
                 } else if (target.classList.contains('progress-btn' && 'btn-secondary')) {
                     target.classList.remove('btn-secondary');
-                    target.classList.add('btn-primary');
+                    target.classList.add('btn-success');
                     target.textContent = "Done";
                     objOfTasks[id].completed = true;
                     target.dataset.completed = `${objOfTasks[id].completed}`;
