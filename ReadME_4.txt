@@ -22,21 +22,21 @@ https://vimeo.com/346713419/9dcf69c029
 https://vimeo.com/346710640/a5e3f81b89
 https://vimeo.com/346710649/9d97f1f862
 https://vimeo.com/346710667/61a4a9c959
+https://vimeo.com/347225434/ed70a32b73
+https://vimeo.com/349315585/9d559ca24b
+https://vimeo.com/349314900/f7478cd299
 
 [https://learn.javascript.ru/dom-nodes]
 
 [https://learn.javascript.ru/introduction-browser-events]
-
-
-
-https://vimeo.com/347225434/ed70a32b73
-https://vimeo.com/349315585/9d559ca24b
 
 [https://karmazzin.gitbooks.io/eloquentjavascript_ru/content/chapters/chapter14.html]
 
 [https://developer.mozilla.org/ru/docs/Learn/JavaScript/Building_blocks/События]
 
 [https://developer.mozilla.org/uk/docs/Web/Events]
+
+
 
 [https://developer.mozilla.org/ru/docs/DOM/DOM_Reference/Введение]
 
