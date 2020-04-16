@@ -28,24 +28,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: 'Occaecat non ea quis occaecat ad culpa amet deserunt incididunt elit fugiat pariatur. Exercitation commodo culpa in veniam proident laboris in. Excepteur cupidatat eiusmod dolor consectetur exercitation nulla aliqua veniam fugiat irure mollit. Eu dolor dolor excepteur pariatur aute do do ut pariatur consequat reprehenderit deserunt.\r\n',
                 title: 'Eu ea incididunt sunt consectetur fugiat non.',
             },
-            // {
-            //     _id: '5d2ca9e29c8a94095c1288e0',
-            //     completed: false,
-            //     body: 'Aliquip cupidatat ex adipisicing veniam do tempor. Lorem nulla adipisicing et esse cupidatat qui deserunt in fugiat duis est qui. Est adipisicing ipsum qui cupidatat exercitation. Cupidatat aliqua deserunt id deserunt excepteur nostrud culpa eu voluptate excepteur. Cillum officia proident anim aliquip. Dolore veniam qui reprehenderit voluptate non id anim.\r\n',
-            //     title: 'Deserunt laborum id consectetur pariatur veniam occaecat occaecat tempor voluptate pariatur nulla reprehenderit ipsum.',
-            // },
+            {
+                _id: '5d2ca9e29c8a94095c1288e0',
+                completed: false,
+                body: 'Aliquip cupidatat ex adipisicing veniam do tempor. Lorem nulla adipisicing et esse cupidatat qui deserunt in fugiat duis est qui. Est adipisicing ipsum qui cupidatat exercitation. Cupidatat aliqua deserunt id deserunt excepteur nostrud culpa eu voluptate excepteur. Cillum officia proident anim aliquip. Dolore veniam qui reprehenderit voluptate non id anim.\r\n',
+                title: 'Deserunt laborum id consectetur pariatur veniam occaecat occaecat tempor voluptate pariatur nulla reprehenderit ipsum.',
+            },
             // {
             //     _id: '5d2ca9e2e03d40b3232496aa7',
             //     completed: true,
-            //     body: 'Occaecat non ea quis occaecat ad culpa amet deserunt incididunt elit fugiat pariatur. Exercitation commodo culpa in veniam proident laboris in. Excepteur cupidatat eiusmod dolor consectetur exercitation nulla aliqua veniam fugiat irure mollit. Eu dolor dolor excepteur pariatur aute do do ut pariatur consequat reprehenderit deserunt.\r\n',
-            //     title: 'Eu ea incididunt sunt consectetur fugiat non.',
+            //     body: 'incididunt elit fugiat pariatur. Exercitation commodo culpa in veniam proident laboris in. Excepteur cupidatat eiusmod dolor consectetur exercitation nulla aliqua veniam fugiat irure mollit. Eu dolor dolor excepteur pariatur aute do do ut pariatur consequat reprehenderit deserunt.\r\n',
+            //     title: ' sunt consectetur fugiat non.',
             // },
-            // {
-            //     _id: '5d2ca9e29c8a94095564788e0',
-            //     completed: false,
-            //     body: 'Aliquip cupidatat ex adipisicing veniam do tempor. Lorem nulla adipisicing et esse cupidatat qui deserunt in fugiat duis est qui. Est adipisicing ipsum qui cupidatat exercitation. Cupidatat aliqua deserunt id deserunt excepteur nostrud culpa eu voluptate excepteur. Cillum officia proident anim aliquip. Dolore veniam qui reprehenderit voluptate non id anim.\r\n',
-            //     title: 'Deserunt laborum id consectetur pariatur veniam occaecat occaecat tempor voluptate pariatur nulla reprehenderit ipsum.',
-            // },
+            {
+                _id: '5d2ca9e29c8a94095564788e0',
+                completed: false,
+                body: 'lorem  loremloremloremloremlorem loremloremlorem loremlorem loremlorem',
+                title: 'Deserunt laborum .',
+            },
         ];
 
         //       **********************************************************************
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, {})
 
             const listConteiner = document.querySelector('.list-group');
-            const container = document.querySelector('.list-container');
+            const BTNcontainer = document.querySelector('.btn-conteiner');
             const form = document.forms['addTask'];
             const inputTitle = form.elements['title'];
             const inputBody = form.elements['body'];
@@ -67,7 +67,43 @@ document.addEventListener("DOMContentLoaded", () => {
             renderAllTasks(objOfTasks);
             form.addEventListener('submit', onFormSubmit);
             listConteiner.addEventListener('click', onClickDelete)
-            listConteiner.addEventListener('click', onClickProgress)
+            listConteiner.addEventListener('click', onClickStatus)
+            BTNcontainer.addEventListener('click', onClickProgress)
+            BTNcontainer.addEventListener('click', onClickAllTasks)
+
+
+            function onClickProgress(e) {
+                const target = e.target;
+                if (target.classList.contains('inProgress')) {
+
+                    renderInProgressTasks(objOfTasks)
+                }
+            }
+
+            function onClickAllTasks(e) {
+                const target = e.target;
+                if (target.classList.contains('allTasks')) {
+                    console.log('allTasks')
+                }
+            }
+
+            function renderInProgressTasks(taskList) {
+
+                Object.values(taskList).forEach((task) => {
+                    if (task.completed) {
+                        const doneTask = task._id;
+                        console.log(doneTask)
+                    }
+                });
+
+                const tasks = document.querySelectorAll('.list-group-item');
+                tasks.forEach((li) => {
+                    // if (li.dataset.taskId === doneTask) {
+                    console.log(li)
+                    // }
+                });
+
+            }
 
             function renderAllTasks(taskList) {
                 if (!taskList || Object.values(taskList).length == 0) {
@@ -82,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                 listConteiner.appendChild(fragment);
                 createBoxBtn();
-
             }
 
             function listItemTemplate({ // create <li></li>
@@ -199,11 +234,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             function createBoxBtn() {
-                container.insertAdjacentHTML('afterbegin',
+                BTNcontainer.insertAdjacentHTML('afterbegin',
                     `
                 <div class="text-center box-buttons">
-                <button style="width: 40%" class="btn btn-info mr-auto filter-btn">in progress</button 100px;>
-                <button style="width: 40%" class="btn btn-info ml-auto filter-btn">done</button>
+                <button style="width: 40%" class="btn btn-info mr-auto filter-btn inProgress">in progress</button 100px;>
+                <button style="width: 40%" class="btn btn-info ml-auto filter-btn allTasks">all</button>
                 </div>
                 `
                 );
@@ -234,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            function onClickProgress(e) {
+            function onClickStatus(e) {
                 const target = e.target;
                 const targetLi = target.closest('[data-task-id]');
                 const id = targetLi.dataset.taskId;
