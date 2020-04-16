@@ -1,4 +1,5 @@
-html, pre {
+html,
+pre {
   font-family: sans-serif;
 }
 
@@ -29,5 +30,11 @@ img {
 
 .table tr:nth-child(2n) {
   background-color: #ccc;
+}
+
+#d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=all.css.map */
