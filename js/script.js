@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = e.target;
         if (target.classList.contains("inProgress")) {
           renderInProgressTasks(objOfTasks);
+          target.dataset.status = "true";
         }
       }
 
@@ -91,6 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = e.target;
         if (target.classList.contains("allTasks")) {
           renoveDisplayNone();
+          const inProgress = BTNcontainer.querySelector(".inProgress");
+          inProgress.dataset.status = "false";
         }
       }
 
@@ -250,8 +253,8 @@ document.addEventListener("DOMContentLoaded", () => {
           "afterbegin",
           `
                 <div class="text-center box-buttons">
-                <button style="width: 40%" class="btn btn-info mr-auto filter-btn inProgress">in progress</button 100px;>
-                <button style="width: 40%" class="btn btn-info ml-auto filter-btn allTasks">all</button>
+                <button style="width: 40%" data-status="false" class="btn btn-info mr-auto filter-btn inProgress">in progress</button 100px;>
+                <button style="width: 40%" data-status="true" class="btn btn-info ml-auto filter-btn allTasks">all</button>
                 </div>
                 `
         );
@@ -286,6 +289,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = e.target;
         const targetLi = target.closest("[data-task-id]");
         const id = targetLi.dataset.taskId;
+        doneStatus(targetLi);
         if (target.classList.contains("progress-btn" && "btn-success")) {
           target.classList.remove("btn-success");
           target.classList.add("btn-secondary");
@@ -300,6 +304,13 @@ document.addEventListener("DOMContentLoaded", () => {
           target.textContent = "Done";
           objOfTasks[id].completed = true;
           target.dataset.completed = `${objOfTasks[id].completed}`;
+        }
+      }
+
+      function doneStatus(li) {
+        const inProgress = BTNcontainer.querySelector(".inProgress");
+        if (inProgress.dataset.status === "true") {
+          li.style.display = "none";
         }
       }
     })(tasks);

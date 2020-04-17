@@ -36,8 +36,6 @@ https://vimeo.com/349314900/f7478cd299
 
 [https://developer.mozilla.org/uk/docs/Web/Events]
 
-
-
 [https://developer.mozilla.org/ru/docs/DOM/DOM_Reference/Введение]
 
 [http://jsbin.com/valasomeli/edit?html,js,output]
