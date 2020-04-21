@@ -12,37 +12,36 @@ document.addEventListener("DOMContentLoaded", () => {
     //    т.е у вас будет две кнопки над таблицей 1-я "показать все задачи" и 2-я
     //    "показать незавершенные задачи", определить завершена задача или нет
     //    можно по полю completed в объекте задачи. По умолчанию при загрузке
-    //    отображаются все задачи.
+    //    отображаются все задачи. При завершении задачи в разделе 
+    //    "незавершенные задачи" она должна от туда пропадать и быть видна в разделе 
+    //    "все задачи" при этом во всех задачах завершенные задачи могут быть востановленны.
+    //    Также в разделе "все задачи" завершенные задачи должны быть в самом низу после
+    //    открытых задач.
+
     //       ************************************* Исходные данные *********************************
 
-    const tasks = [
-      {
+    const tasks = [{
         _id: "5d2ca9e2e03d40b326596aa7",
         completed: true,
-        body:
-          "Occaecat non ea quis occaecat ad culpa amet deserunt incididunt elit fugiat pariatur. Exercitation commodo culpa in veniam proident laboris in. Excepteur cupidatat eiusmod dolor consectetur exercitation nulla aliqua veniam fugiat irure mollit. Eu dolor dolor excepteur pariatur aute do do ut pariatur consequat reprehenderit deserunt.\r\n",
+        body: "Occaecat non ea quis occaecat ad culpa amet deserunt incididunt elit fugiat pariatur. Exercitation commodo culpa in veniam proident laboris in. Excepteur cupidatat eiusmod dolor consectetur exercitation nulla aliqua veniam fugiat irure mollit. Eu dolor dolor excepteur pariatur aute do do ut pariatur consequat reprehenderit deserunt.\r\n",
         title: "Eu ea incididunt sunt consectetur fugiat non.",
       },
       {
         _id: "5d2ca9e29c8a94095c1288e0",
         completed: false,
-        body:
-          "Aliquip cupidatat ex adipisicing veniam do tempor. Lorem nulla adipisicing et esse cupidatat qui deserunt in fugiat duis est qui. Est adipisicing ipsum qui cupidatat exercitation. Cupidatat aliqua deserunt id deserunt excepteur nostrud culpa eu voluptate excepteur. Cillum officia proident anim aliquip. Dolore veniam qui reprehenderit voluptate non id anim.\r\n",
-        title:
-          "Deserunt laborum id consectetur pariatur veniam occaecat occaecat tempor voluptate pariatur nulla reprehenderit ipsum.",
+        body: "Aliquip cupidatat ex adipisicing veniam do tempor. Lorem nulla adipisicing et esse cupidatat qui deserunt in fugiat duis est qui. Est adipisicing ipsum qui cupidatat exercitation. Cupidatat aliqua deserunt id deserunt excepteur nostrud culpa eu voluptate excepteur. Cillum officia proident anim aliquip. Dolore veniam qui reprehenderit voluptate non id anim.\r\n",
+        title: "Deserunt laborum id consectetur pariatur veniam occaecat occaecat tempor voluptate pariatur nulla reprehenderit ipsum.",
       },
       {
         _id: "5d2ca9e2e03d40b3232496aa7",
         completed: true,
-        body:
-          "incididunt elit fugiat pariatur. Exercitation commodo culpa in veniam proident laboris in. Excepteur cupidatat eiusmod dolor consectetur exercitation nulla aliqua veniam fugiat irure mollit. Eu dolor dolor excepteur pariatur aute do do ut pariatur consequat reprehenderit deserunt.\r\n",
+        body: "incididunt elit fugiat pariatur. Exercitation commodo culpa in veniam proident laboris in. Excepteur cupidatat eiusmod dolor consectetur exercitation nulla aliqua veniam fugiat irure mollit. Eu dolor dolor excepteur pariatur aute do do ut pariatur consequat reprehenderit deserunt.\r\n",
         title: " sunt consectetur fugiat non.",
       },
       {
         _id: "5d2ca9e29c8a94095564788e0",
         completed: false,
-        body:
-          "lorem  loremloremloremloremlorem loremloremlorem loremlorem loremlorem",
+        body: "lorem  loremloremloremloremlorem loremloremlorem loremlorem loremlorem",
         title: "Deserunt laborum .",
       },
     ];
@@ -125,7 +124,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // create <li></li>
-      function listItemTemplate({ _id, title, body, completed } = {}) {
+      function listItemTemplate({
+        _id,
+        title,
+        body,
+        completed
+      } = {}) {
         const li = document.createElement("li");
         li.classList.add(
           "list-group-item",
