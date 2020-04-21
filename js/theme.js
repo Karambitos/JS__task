@@ -69,6 +69,29 @@
         },
     };
 
-    console.log('theme')
+    themeSelect.addEventListener('change', onThemeSelect);
+    let lastThemeSelect = 'default';
+
+    function onThemeSelect(e) {
+        const selectedTheme = themeSelect.value;
+        const isConfirm = confirm('Are you sure?');
+        if (!isConfirm) {
+            themeSelect.value = lastThemeSelect;
+            return;
+        }
+        lastThemeSelect = themeSelect.value;
+        setTheme(selectedTheme);
+    }
+
+    function setTheme(name) {
+        const selectedThemeObj = themes[name];
+        Object.entries(selectedThemeObj).forEach(([key, value]) => {
+            document.documentElement.style.setProperty(key, value)
+        });
+    }
+
+
+
+
 
 })();
